@@ -22,6 +22,8 @@ func NewApp() *iris.Application {
 	
 	app.Post("/demo",controller.Create)
 	app.Get("/demo", controller.List)
+    app.Get("/demo/{id:int64}", controller.QueryOne)
+    app.Delete("/demo/{id:int64}", controller.DelOne)
     app.HandleDir("/", "./public")
 
     myOtherHandler := func(ctx iris.Context) {
